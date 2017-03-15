@@ -17,10 +17,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+//importation adaptation mac
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.MatteBorder;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.table.TableColumn;
 
-public class AllPackages extends JFrame implements MouseListener {
+
+public class AllPackages extends JFrame implements MouseListener  {
 	private static final long serialVersionUID = 1L;
 	private int height;
 	private int width;
@@ -34,8 +39,10 @@ public class AllPackages extends JFrame implements MouseListener {
 	private JPanel panBtn = new JPanel();
 	private Font police = new Font("Arial", Font.BOLD, 30);
 
-	public AllPackages() {
-
+	public AllPackages() throws UnsupportedLookAndFeelException {
+		//adaptation mac
+		UIManager.setLookAndFeel(new MetalLookAndFeel());
+		
 		this.NewFrame_AllPackages();
 		this.Table_AllPackages();
 		this.Button_AllPackages();
@@ -60,7 +67,7 @@ public class AllPackages extends JFrame implements MouseListener {
 //		final int widthf = width - 200;
 
 		// parametrage fenetre Tous Les Colis
-		this.setTitle("Liste complète des colis");
+		this.setTitle("Liste complÃ¨te des colis");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ImageIcon imagePackage = new ImageIcon("media/colis2.jpg");
 		this.setIconImage(imagePackage.getImage());
@@ -136,7 +143,7 @@ public class AllPackages extends JFrame implements MouseListener {
 		Dimension sizeMenu = this.btnMenu.getPreferredSize();
 		this.btnMenu.setBounds(insets.left, insets.top, sizeMenu.width+150, sizeMenu.height+25);
 		this.btnMenu.setBackground(Color.DARK_GRAY);
-		this.btnMenu.setForeground(Color.WHITE);
+		this.btnMenu.setForeground(new Color(255,255,255));
 		this.btnMenu.setFont(police);
 		this.btnMenu.addMouseListener(this);
 		
@@ -145,15 +152,15 @@ public class AllPackages extends JFrame implements MouseListener {
 		this.btnResearch.setBounds(600+sizeMenu.width+insets.left, insets.top, sizeResearch.width+150, sizeResearch.height+25);
 		this.panBtn.add(this.btnResearch);
 		this.btnResearch.setBackground(new Color(255,127,0));
-		this.btnResearch.setForeground(Color.WHITE);
+		this.btnResearch.setForeground(new Color(255,255,255));
 		this.btnResearch.setFont(police);
 		this.btnResearch.addMouseListener(this);
 		
-		this.btnAvailabality=new JButton ("Disponibilités");
+		this.btnAvailabality=new JButton ("DisponibilitÃ©s");
 		this.btnAvailabality.setBounds(750+sizeMenu.width+sizeResearch.width+insets.left, insets.top, sizeResearch.width+150, sizeResearch.height+25);
 		this.panBtn.add(this.btnAvailabality);
 		this.btnAvailabality.setBackground(new Color(244,102,27));
-		this.btnAvailabality.setForeground(Color.WHITE);
+		this.btnAvailabality.setForeground(new Color(255,255,255));
 		this.btnAvailabality.setFont(police);
 		this.btnAvailabality.addMouseListener(this);
 		
