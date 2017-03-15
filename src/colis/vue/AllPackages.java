@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.MatteBorder;
+import javax.swing.table.TableColumn;
 
 public class AllPackages extends JFrame implements MouseListener {
 	private static final long serialVersionUID = 1L;
@@ -96,8 +97,27 @@ public class AllPackages extends JFrame implements MouseListener {
 		}
 		
 		this.tablePackages = new JTable(rows, headers);
-		this.tablePackages.getTableHeader().setPreferredSize(new Dimension(tablePackages.getColumnModel().getTotalColumnWidth(),70));
+		this.tablePackages.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		TableColumn col = this.tablePackages.getColumnModel().getColumn(0);
+        col.setPreferredWidth(40);
+        col = this.tablePackages.getColumnModel().getColumn(1);
+        col.setPreferredWidth(80);
+        col = this.tablePackages.getColumnModel().getColumn(2);
+        col.setPreferredWidth(70);
+        col = this.tablePackages.getColumnModel().getColumn(3);
+        col.setPreferredWidth(70);
+        col = this.tablePackages.getColumnModel().getColumn(4);
+        col.setPreferredWidth(110);
+        col = this.tablePackages.getColumnModel().getColumn(5);
+        col.setPreferredWidth(110);
+        col = this.tablePackages.getColumnModel().getColumn(6);
+        col.setPreferredWidth(130);
+        col = this.tablePackages.getColumnModel().getColumn(6);
+        col.setPreferredWidth(130);
+        
+        this.tablePackages.getTableHeader().setPreferredSize(new Dimension(tablePackages.getColumnModel().getTotalColumnWidth(),70));
 		this.tablePackages.getTableHeader().setFont(new Font("Arial", Font.BOLD, 13));
+		
 		
 		this.scrollPaneTable = new JScrollPane(this.tablePackages);
 		this.scrollPaneTable.setViewportBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
